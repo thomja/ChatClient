@@ -1,0 +1,13 @@
+﻿<Properties StartupItem="tcpSocket\tcpSocket.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="tcpSocket\ChatReader.cs">
+    <Files>
+      <File FileName="tcpSocket\Program.cs" Line="43" Column="31" />
+      <File FileName="tcpSocket\ChatReader.cs" Line="33" Column="84" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
