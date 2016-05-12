@@ -15,7 +15,7 @@ class ChatReader
 	public ChatReader(Int32 port)
     {
 		currentPort = port;
-        this.myIPAddress = GetIPAddress();
+        this.myIPAddress = "192.168.0.196";
         Start();
     }
 

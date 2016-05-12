@@ -67,11 +67,11 @@ namespace tcpSocket
 
                         if (defaultHostIP == "")
                         {
-                            client = new TcpClient(serverHost, 80);
+                            client = new TcpClient(serverHost, 81);
                         }
                         else
                         {
-                            client = new TcpClient(defaultHostIP, 80);
+                            client = new TcpClient(defaultHostIP, 81);
                         }
 
                         // Translate the passed message into ASCII and store it as a Byte array.
