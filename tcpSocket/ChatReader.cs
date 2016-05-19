@@ -7,17 +7,9 @@ using System.Threading;
 
 class ChatReader
 {
-    public string myIPAddress;
-	public Int32 currentPort;
     public InputCleaner cleaner = new InputCleaner();
     public string sentString = "";  //Dirty solution but the easiest one so far...
-
-	public ChatReader(Int32 port)
-    {
-		currentPort = port;
-        this.myIPAddress = "192.168.0.196";
-        Start();
-    }
+    public NetworkStream stream = null;
 
     public void Start()
     {
@@ -29,52 +21,49 @@ class ChatReader
     public void Listen()
     {
         TcpListener server = null;
+
         try
         {
-            // TcpListener server = new TcpListener(port);
-            server = new TcpListener(IPAddress.Parse(this.myIPAddress), currentPort);
-
-            // Start listening for client requests.
-            server.Start();
-
-            // Buffer for reading data
-            Byte[] bytes = new Byte[256];
-            String data = null;
-
-            // Enter the listening loop.
+            
             while (true)
             {
-                // Perform a blocking call to accept requests.
-                // You could also user server.AcceptSocket() here.
-                TcpClient client = server.AcceptTcpClient();
-
-                data = null;
-
                 // Get a stream object for reading and writing
-                NetworkStream stream = client.GetStream();
-
-
+                Byte[] bytes = new Byte[256];
+                String data = null;
                 int i;
 
-                // Loop to receive all the data sent by the client.
-                while ((i = stream.Read(bytes, 0, bytes.Length)) != 0)
-                {
-                    // Translate data bytes to a ASCII string.
-                    data = System.Text.Encoding.ASCII.GetString(bytes, 0, i);
-                    data = data.Replace("Replying: ", "");
-                    if(data != sentString)
-                    {
-                        Console.WriteLine(data);
-                        sentString = "";
-                    } else
-                    {
-                        sentString = "";
-                    }
-                    break;
-                }
+                //addresses.AddIP(((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString());
+                //((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString() <-- Gets IP address!
 
-                // Shutdown and end connection
-                client.Close();
+                // Loop to receive all the data sent by the client.
+                Console.WriteLine(2);
+
+                try
+                {
+                    while ((i = stream.Read(bytes, 0, bytes.Length)) != 0)
+                    {
+                        // Translate data bytes to a ASCII string.
+                        data = Encoding.ASCII.GetString(bytes, 0, i);
+                        //Cleans info from string
+                        Console.WriteLine(data);
+                        if (data.StartsWith("CONNECTINGPORT:"))
+                        { //&& addresses.findIP (((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString()) == false){
+                            data = data.Replace("CONNECTINGPORT:", "");
+                            //addresses.AddClients(((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString(), Int32.Parse(data));
+                        } else
+                        {
+                            Console.WriteLine(data);
+                        }
+                        
+                        break;
+                    }
+                }
+                catch (Exception e)
+                {
+                    ///Console.WriteLine("Client disconnected, closing thread number {0}", mySpot);
+                    Console.WriteLine(e);
+                    ///myThreads[mySpot].Abort();
+                }
             }
         }
         catch (SocketException e)
@@ -87,7 +76,7 @@ class ChatReader
             server.Stop();
         }
     }
-
+    /*
     public string GetIPAddress()
     {
         IPHostEntry host;
@@ -101,5 +90,5 @@ class ChatReader
             }
         }
         return localIP;
-    }
+    }*/
 }
