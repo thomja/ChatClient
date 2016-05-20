@@ -33,9 +33,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChatReader.cs" />
     <Compile Include="ChatSender.cs" />
-    <Compile Include="InputCleaner.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
