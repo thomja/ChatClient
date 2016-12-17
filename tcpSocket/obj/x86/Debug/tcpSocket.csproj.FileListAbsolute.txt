@@ -13,3 +13,8 @@ C:\Users\Thomas\Documents\GitHub\ChatClient\tcpSocket\obj\x86\Debug\tcpSocket.pd
 C:\Users\Thomas\Documents\GitHub\ChatClient\tcpSocket\bin\Debug\tcpSocket.exe
 C:\Users\Thomas\Documents\GitHub\ChatClient\tcpSocket\bin\Debug\tcpSocket.pdb
 C:\Users\Thomas\Documents\GitHub\ChatClient\tcpSocket\obj\x86\Debug\tcpSocket.csprojResolveAssemblyReference.cache
+E:\BACKUP\ChatClient\tcpSocket\obj\x86\Debug\tcpSocket.exe
+E:\BACKUP\ChatClient\tcpSocket\obj\x86\Debug\tcpSocket.pdb
+E:\BACKUP\ChatClient\tcpSocket\bin\Debug\tcpSocket.exe
+E:\BACKUP\ChatClient\tcpSocket\bin\Debug\tcpSocket.pdb
+E:\BACKUP\ChatClient\tcpSocket\obj\x86\Debug\tcpSocket.csprojResolveAssemblyReference.cache

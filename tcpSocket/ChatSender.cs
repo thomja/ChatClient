@@ -3,11 +3,14 @@ using System.Text;
 using System.Net.Sockets;
 using System.Threading;
 
+//By Thomas Jansson
+//For support use google...
+
 namespace tcpSocket
 {
     class ChatSender
     {
-        string serverHost = "192.168.0.196";
+        string serverHost = "XX.XX.XX.XX"; //public IP to the host
         TcpClient client;
         Int32 port;
         NetworkStream stream = null;
